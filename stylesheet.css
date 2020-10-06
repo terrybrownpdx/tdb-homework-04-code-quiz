@@ -16,6 +16,20 @@ h3 {
     font-size: 15px;
 }
 
+.container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#start {
+    height: 60%;
+    width: 80%;
+    text-align: center;
+    color: ivory;
+    background-color: green;
+    
+}
+
 .button {
     height: 20%;
     width: 95%;
@@ -23,6 +37,8 @@ h3 {
     margin: 5px;
     text-align: justify;
 }
+
+
 
 
 

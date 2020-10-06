@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Quiz</title>
- 
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <link rel="stylesheet" href="stylesheet.css">
 
@@ -29,8 +30,31 @@
     </header>
 
     <div class="container">
-        <div class="card" style="height: 600px">
-            <div class="card-header">
+        <div class="row">
+                <div class="col-sm-2"> 
+                    <button id="start" class="button">Start Quiz</button>
+                </div>
+
+                <div class="col-sm-8"></div>           
+                    
+                <div class="col-md-2">    
+                    <form>
+                        <div class="form-group">
+                            <label for="Initials">Initials</label>
+                            <input type="text" class="form-control" id="Name">
+                        </div>
+                            <button type="submit" class="btn btn-primary" style="color: azure; background-color: green;">Submit</button>
+                    </form> <!-- Content here -->
+                </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="container">
+        <div class="card" style="height: 500px">
+            <div class="card-header" style="height: 100px;">
                 <h2>Questions</h2>
             </div>
 
@@ -44,11 +68,11 @@
             <div class="card-footer">
                 <h3>Correct or Incorrect</h3>
             </div>
-        <div>
-        
-    </div>
+            <div>
 
-    <script> src = "javascript.js"</script>
+            </div>
+
+            <script> src = "javascript.js"</script>
 </body>
 
 </html>
