@@ -4,24 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Quiz</title>
 
+    <title>Code Quiz</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
     <link rel="stylesheet" href="stylesheet.css">
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"></script>
-
 </head>
 
 <body>
@@ -31,48 +19,151 @@
 
     <div class="container">
         <div class="row">
-                <div class="col-sm-2"> 
-                    <button id="start" class="button">Start Quiz</button>
-                </div>
+            <div class="col-sm-2">
+                <button id="start" class="start-button">Start Quiz</button>
+            </div>
 
-                <div class="col-sm-8"></div>           
-                    
-                <div class="col-md-2">    
-                    <form>
-                        <div class="form-group">
-                            <label for="Initials">Initials</label>
-                            <input type="text" class="form-control" id="Name">
-                        </div>
-                            <button type="submit" class="btn btn-primary" style="color: azure; background-color: green;">Submit</button>
-                    </form> <!-- Content here -->
-                </div>
+            <div class="col-sm-3"></div>
+
+            <div class="col-sm-2">
+                <button id="timer" class="timer-button">Timer</button>
+            </div>
+
+            <div class="col-sm-3"></div>
+
+            <div class="col-md-2">
+                <form>
+                    <div class="form-group">
+                        <label for="Initials">Initials</label>
+                        <input type="text" class="form-control" id="Initials">
+                    </div>
+
+                    <button id="submit" type="submit" class="btn btn-primary"
+                        style="color: azure; background-color: green;">Submit</button>
+                </form> <!-- Content here -->
+            </div>
         </div>
     </div>
 
-
-
-
     <div class="container">
         <div class="card" style="height: 500px">
-            <div class="card-header" style="height: 100px;">
+            <div id="questions" class="card-header" style="height: 100px;">
                 <h2>Questions</h2>
             </div>
 
             <div class="card-body">
-                <button id="answer1" class="button">Answer1</button>
-                <button id="answer2" class="button">Answer2</button>
-                <button id="answer3" class="button">Answer3</button>
-                <button id="answer4" class="button">Answer4</button>
+                <button id="button1" class="button">Answer1</button>
+                <button id="button2" class="button">Answer2</button>
+                <button id="button3" class="button">Answer3</button>
+                <button id="button4" class="button">Answer4</button>
             </div>
 
-            <div class="card-footer">
+            <div id="result" class="card-footer">
+
                 <h3>Correct or Incorrect</h3>
             </div>
-            <div>
 
+            <div>
             </div>
 
-            <script> src = "javascript.js"</script>
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.5.1.js"
+            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+        <script type="text/javascript">
+
+            $(document).ready(function () {
+
+                //startEl.addEventListener("click", function(){
+
+                $("#start").on("click", function () {
+                    setTime();
+                });
+                //var startButton = document.getElementById("start");
+                var timerButton = document.getElementById("timer");
+
+                var secondsLeft = 10;
+
+                function setTime() {
+                    var timerInterval = setInterval(function () {
+                        secondsLeft--;
+                        timerButton.textContent = secondsLeft + "";
+
+                        if (secondsLeft === 0) {
+                            clearInterval(timerInterval);
+                            sendMessage();
+                        }
+
+                    }, 1000);
+                }
+
+                //Timer to 0//
+                // Alert time expired, Prompt Initials//
+                function sendMessage() {
+                    timerButton.textContent = "Time Expired";
+                    prompt("Write in Initials");
+                }
+
+            });
+
+    //prompt("questions");
+    //reset("score to 0")
+    //}
+
+    //All questions answered
+    //Alert("Quiz Complete");//
+    //prompt("Write in Initials");//
+        //}//
+
+    //Submit button resets everything//
+
+    //declare variables as arrays
+    var correctAnswers1 = ( " correctAnswer " );
+    var incorrectAnswers1 = ["incorrectAnswer11", "incorrectAnswer12", "incorrectAnswer13"];
+    $(".button").on("click", function(){
+        console.log("clicky");
+    });
+    
+
+
+    //var correctAnswers2 = (correctAnswer2);
+    //var incorrectAnswers2 = [incorrectAnswer21, incorrectAnswer22, incorrectAnswer23];
+
+    //var correctAnswers3 = (correctAnswer3);
+    //var incorrectAnswers3 = [incorrectAnswer31, incorrectAnswer32, incorrectAnswer33];
+
+    //var correctAnswers4 = (orrectAnswer4);
+    //var incorrectAnswers4 = [incorrectAnswer41, incorrectAnswer42, incorrectAnswer43];
+
+
+    //if (correctAnswers === true) {
+
+      //alert("Correct");
+      //alert(Score + 1)
+      //prompt("next question");
+    //}
+
+    //else {
+      //alert("Incorrect");
+      //decrement 5 seconds
+      //prompt("same question");
+
+    //};
+    //var questionOne = ["The boy walked to the park", "Girl likes to play golf", "Man", "Woman"];
+    //for (key in questionOne) {
+      //$(".question-1")[key].textContent = questionOne[key];
+    //}
+
+    //$(".question-1").on("click", function () {
+      //console.log($(this).text())
+    //})
+    //})
+    //}
+
+        </script>
+
 </body>
 
 </html>
