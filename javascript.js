@@ -1,82 +1,170 @@
-var startButton = document.getElementById("start");
-var timerButton = document.getElementById("timer");
+$(document).ready(function () {
 
-var secondsLeft = 30;
+    $("#start").on("click", function () {
+        setTime();
+        setAnswers();
+    });
+    
+    //var startButton = document.getElementById("start");
+    var timerButton = document.getElementById("timer");
 
-function setTime() {
-  var timerInterval = setInterval(function() {
-    secondsLeft--;
-    timerButton.textContent = secondsLeft + " test";
+    var secondsLeft = 60;
 
-    if(secondsLeft === 0) {
-      clearInterval(timerInterval);
-      sendMessage();
+    function setTime() {
+        var timerInterval = setInterval(function () {
+            secondsLeft--;
+            timerButton.textContent = secondsLeft + "";
+
+            if (secondsLeft === 0) {
+                clearInterval(timerInterval);
+                sendMessage();
+            }
+
+        }, 1000);
     }
+    //Timer to 0//
+    // Alert time expired, Prompt Initials//    
+    function sendMessage() {
+        timerButton.textContent = "Time Expired";
+        prompt("Write in Initials");
+    }
+    function setAnswers() {
+        //for (var i = 0; i < allAnswers1.length; i++) {
+        //document.querySelectorAll("button")[i].innerText = allAnswers1[i];
+        var question1 = ("question number 1");
+        var correctAnswers1 = ("correctAnswer");
+        var incorrectAnswers1 = ["incorrectAnswer11", "incorrectAnswer12", "incorrectAnswer13"];
+        var allAnswers1 = ["correctAnswer", "incorrectAnswer11", "incorrectAnswer12", "incorrectAnswer13"];    
 
-  }, 1000);
-}
-
-function sendMessage() {
-  timerButton.textContent = "Time Expired";
-}
-
-setTime();
+        var questionOne = document.getElementById('questions');
+        var button1 = document.getElementById('button1');
+        var button2 = document.getElementById('button2');
+        var button3 = document.getElementById('button3');
+        var button4 = document.getElementById('button4');
     
-//startEl.addEventListener("click", function(){
-  //setTime();
-//}
+        questionOne.innerText = question1;
+        button1.innerText = allAnswers1[0];
+        button2.innerText = allAnswers1[1];
+        button3.innerText = allAnswers1[2];
+        button4.innerText = allAnswers1[3];
+        }        
+    function setAnswers2 () {
+        var question2 = ("question number 2");
+        var correctAnswers2 = ("correctAnswer2");
+        var incorrectAnswers2 = ["incorrectAnswer21", "incorrectAnswer22", "incorrectAnswer23"];
+        var allAnswers2 = ["correctAnswer2", "incorrectAnswer21", "incorrectAnswe22", "incorrectAnswer23"];
+        
+        var questionTwo = document.getElementById('questions');        
+        var button1 = document.getElementById('button1');
+        var button2 = document.getElementById('button2');
+        var button3 = document.getElementById('button3');
+        var button4 = document.getElementById('button4');
 
+        questionTwo.innerText = question2;
+        button1.innerText = allAnswers2[0];
+        button2.innerText = allAnswers2[1];
+        button3.innerText = allAnswers2[2];
+        button4.innerText = allAnswers2[3];
+        }          
+    function setAnswers3() {
+        var question3 = ("question number 3");
+        var correctAnswers3 = ("correctAnswer3");
+        var incorrectAnswers3 = ["incorrectAnswer31", "incorrectAnswer32", "incorrectAnswer33"];
+        var allAnswers3 = ["correctAnswer3", "incorrectAnswer31", "incorrectAnswe32", "incorrectAnswer33"];
+        
+        var questionThree = document.getElementById('questions');
+        var button1 = document.getElementById('button1');
+        var button2 = document.getElementById('button2');
+        var button3 = document.getElementById('button3');
+        var button4 = document.getElementById('button4');
+
+        questionThree.innerText = question3;
+        button1.innerText = allAnswers3[0];
+        button2.innerText = allAnswers3[1];
+        button3.innerText = allAnswers3[2];
+        button4.innerText = allAnswers3[3];
+        }
+    function setAnswers4() {
+        var question4 = ("question number 4");
+        var correctAnswers4 = ("correctAnswer4");
+        var incorrectAnswers4 = ["incorrectAnswer41", "incorrectAnswer42", "incorrectAnswer43"];
+        var allAnswers4 = ["correctAnswer43", "incorrectAnswer41", "incorrectAnswer42", "incorrectAnswer43"];
+        
+        var questionFour = document.getElementById('questions');
+        var button1 = document.getElementById('button1');
+        var button2 = document.getElementById('button2');
+        var button3 = document.getElementById('button3');
+        var button4 = document.getElementById('button4');
     
-    
+        questionFour.innerText = question4;
+        button1.innerText = allAnswers4[0];
+        button2.innerText = allAnswers4[1];
+        button3.innerText = allAnswers4[2];
+        button4.innerText = allAnswers4[3];         
+        }
 
-     
+    //Need help with aligning answer to proper response.  on click generates correct answer
+    $(".button").on("click", function(){     
+        //pass event value
+        //if event.data === true then run correct answer function else 
+        if ('correctAnswers1') {
+        alert("Correct");
+        //alert(Score + 1);
+        setAnswers2(); 
+    }
+       else {
+        alert("Incorrect");
+        //decrement(5 seconds);
+        setAnswers();
+        //for (var i = 0; i < allAnswers1.length; i++) {
+        //document.querySelectorAll("button")[i].innerText = allAnswers1[i];
+        }
+    })
 
-    //prompt("questions");
-    //reset("score to 0")
-    //}
+    $(".button").on("click", function(){     
+        //pass event value
+        //if event.data === true then run correct answer function else 
+    if ('correctAnswers2') {
+        alert("Correct");
+        //alert(Score + 1);
+        setAnswers3(); 
+    }
+       else {
+        alert("Incorrect");
+        //decrement(5 seconds);
+        setAnswers2();
+    }
+})
 
-    //Timer to 0
-    // Alert time expired, Prompt Initials
+$(".button").on("click", function(){     
+        //pass event value
+        //if event.data === true then run correct answer function else 
+    if ('correctAnswers3') {
+        alert("Correct");
+        //alert(Score + 1);
+        setAnswers4(); 
+    }
+       else {
+        alert("Incorrect");
+        //decrement(5 seconds);
+        setAnswers3();
+    }
+})
 
-    //All questions answered
-    // Alert quiz complete, Prompt Initials
+$(".button").on("click", function(){     
+        //pass event value
+        //if event.data === true then run correct answer function else 
+    if ('correctAnswers4') {
+        alert("Correct");
+        //alert(Score + 1);
+        alert ("Quiz Complete"); 
+        prompt("Write in Initials");
+    }
+       else {
+        alert("Incorrect");
+        //decrement(5 seconds);
+        setAnswers4();
+    }       
+})      
 
-    //Submit button resets everything
-
-    //declare variables as arrays
-    //var correctAnswers1 = (correctAnswer1);
-    //var incorrectAnswers1 = [incorrectAnswer11, incorrectAnswer12, incorrectAnswer13];
-
-    //var correctAnswers2 = (correctAnswer2);
-    //var incorrectAnswers2 = [incorrectAnswer21, incorrectAnswer22, incorrectAnswer23];
-
-    //var correctAnswers3 = (correctAnswer3);
-    //var incorrectAnswers3 = [incorrectAnswer31, incorrectAnswer32, incorrectAnswer33];
-
-    //var correctAnswers4 = (orrectAnswer4);
-    //var incorrectAnswers4 = [incorrectAnswer41, incorrectAnswer42, incorrectAnswer43];
-
-
-    //if (correctAnswers === true) {
-
-      //alert("Correct");
-      //alert(Score + 1)
-      //prompt("next question");
-    //}
-
-    //else {
-      //alert("Incorrect");
-      //decrement 5 seconds
-      //prompt("same question");
-
-    //};
-    //var questionOne = ["The boy walked to the park", "Girl likes to play golf", "Man", "Woman"];
-    //for (key in questionOne) {
-      //$(".question-1")[key].textContent = questionOne[key];
-    //}
-
-    //$(".question-1").on("click", function () {
-      //console.log($(this).text())
-    //})
-  //})
-//}
+})
